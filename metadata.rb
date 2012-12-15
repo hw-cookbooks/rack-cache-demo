@@ -1,0 +1,18 @@
+name             "rack-cache-demo"
+maintainer       "YOUR_NAME"
+maintainer_email "YOUR_EMAIL"
+license          "All rights reserved"
+description      "Installs/Configures rack-cache-demo"
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          "0.1.0"
+
+depends "database"
+depends "postgresql"
+depends "memcached"
+depends "runlist_modifiers"
+depends "git"
+depends "apt"
+depends "ubuntu"
+depends "application"
+depends "application_ruby"
+depends "passenger_apache2"
