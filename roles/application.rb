@@ -1,2 +1,2 @@
-name "application"
-run_list [ "rack-cache-demo" ]
+name 'application'
+run_list [ 'rack-cache-demo' ]
