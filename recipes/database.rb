@@ -1,13 +1,13 @@
 # Simulate an external cookbook that sets up a database
-include_recipe "postgresql::server"
-include_recipe "database::postgresql"
+include_recipe 'postgresql::server'
+include_recipe 'database::postgresql'
 
 # This could be a search
 postgresql_connection_info = {
-  :host => node['rack-cache-demo']['database']['hostname'],
-  :port => 5432,
-  :username => 'postgres',
-  :password => node['postgresql']['password']['postgres']
+  host: node['rack-cache-demo']['database']['hostname'],
+  port: 5432,
+  username: 'postgres',
+  password: node['postgresql']['password']['postgres'],
 }
 
 postgresql_database node['rack-cache-demo']['database']['name'] do
@@ -25,8 +25,8 @@ postgresql_database node['rack-cache-demo']['database']['name'] do
   action :create
 end
 
-Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
-node.set_unless['rack-cache-demo']['database']['password'] = secure_password
+Chef::Recipe.include Opscode::OpenSSL::Password
+node.normal_unless['rack-cache-demo']['database']['password'] = secure_password
 
 postgresql_database_user node['rack-cache-demo']['database']['user'] do
   connection postgresql_connection_info

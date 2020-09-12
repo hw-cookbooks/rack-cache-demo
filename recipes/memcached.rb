@@ -1,1 +1,1 @@
-memcached_instance "rack-cache-demo"
+memcached_instance 'rack-cache-demo'
