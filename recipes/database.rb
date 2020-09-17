@@ -25,7 +25,7 @@ postgresql_database node['rack-cache-demo']['database']['name'] do
   action :create
 end
 
-Chef::Recipe.include Opscode::OpenSSL::Password
+Chef::DSL::Recipe.include Opscode::OpenSSL::Password
 node.normal_unless['rack-cache-demo']['database']['password'] = secure_password
 
 postgresql_database_user node['rack-cache-demo']['database']['user'] do
